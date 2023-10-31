@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>svg animations</title>
+</head>
+<body>
+    <svg width="120" height="100" viewBox="0 0 120 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g id="triangles">
+            <g id="darkGroup">
+                <path id="dark1"
+                    d="M40.7752 49.3445C42.7618 50.5221 42.7285 53.4087 40.7153 54.5403L17.3121 67.6948C15.299 68.8263 12.8158 67.3542 12.8424 65.045L13.1518 38.2C13.1785 35.8907 15.6949 34.4763 17.6815 35.6539L40.7752 49.3445Z"
+                     fill-opacity="0.75" />
+            </g>
+            <g id="lightGroup">
+                <path id="light1"
+                    d="M52.7752 49.3445C54.7618 50.5221 54.7285 53.4087 52.7153 54.5403L29.3121 67.6948C27.299 68.8263 24.8158 67.3542 24.8424 65.045L25.1518 38.2C25.1785 35.8907 27.6949 34.4763 29.6815 35.6539L52.7752 49.3445Z"
+                     fill-opacity="0.75" />
+                <path id="light2"
+                    d="M40.7752 49.3445C42.7618 50.5221 42.7285 53.4087 40.7153 54.5403L17.3121 67.6948C15.299 68.8263 12.8158 67.3542 12.8424 65.045L13.1518 38.2C13.1785 35.8907 15.6949 34.4763 17.6815 35.6539L40.7752 49.3445Z"
+                     fill-opacity="0.75" />
+            </g>
+        </g>
+    </svg>
+</body>
+<style>
+
+    :root {
+        --dark-color: #494949;
+        --light-color: #74DE78;
+    }
+
+    svg {
+        cursor: pointer;
+    }
+
+    #darkGroup {
+        fill: var(--dark-color)
+    }
+    #lightGroup {
+        fill: var(--light-color)
+    }
+
+    #light1,
+    #dark1,
+    #light2 {
+        transition: all 1s ease;
+    }
+    #light2 {
+        transform: translateX(-100%);
+    }
+    svg:hover #dark1 {
+        transform: translateX(12.5%);
+    }
+    svg:hover #light1 {
+        transform: translateX(40%);
+        opacity: 0;
+    }
+    svg:hover #light2 {
+        transform: translateX(0%);
+    }
+</style>
+<script>
+    const svg = document.getElementById('triangles');
+    svg.onclick = (e) => {
+        const colors = ['red', 'blue', 'green', 'orange', 'pink', 'purple']
+        const rando = () => colors[Math.floor(Math.random() * colors.length)];
+        document.documentElement.style.cssText = `
+        --dark-color: ${rando()};
+        --light-color: ${rando()};`
+    }
+</script>
+</html>
