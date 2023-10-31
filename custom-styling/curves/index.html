@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=EB+Garamond&family=Montserrat&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/kute.js@2.2.4/dist/kute.min.js"></script>
+    
+    <style>
+      body {
+        margin: 0;
+        font-family: "Montserrat", sans-serif;
+        color: white;
+        background: #202731;
+        overflow-x: hidden;
+      }
+
+      section {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-height: 400px;
+        padding: 100px 20vw;
+      }
+
+      .pink {
+        background: #ff0066;
+      }
+      
+      .spacer {
+        aspect-ratio: 960/300;
+        width: 100%;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+      }
+
+      .layer1 {
+        background-image: url("./layer1.svg");
+      }
+      .layer2 {
+        background-image: url("./layer2.svg");
+      }
+
+      .flip {
+        transform: rotate(180deg);
+      }
+
+      .blob-motion {
+        position: absolute;
+        transform:  translateY(-20%);
+      }
+    </style>
+  </head>
+  <body>
+    
+
+    <div class="spacer layer2 flip"></div>
+    <section class="pink">
+      <h1>Nice Curves</h1>
+      <p>
+        Nemo maiores ratione corporis debitis officiis doloribus labore
+        temporibus est, expedita nobis. Mollitia adipisci aperiam, tempora
+        laudantium et numquam impedit! Amet fuga dolorem corporis blanditiis
+        esse repellendus reprehenderit iste magni.
+      </p>
+      <svg
+        id="visual"
+        viewBox="0 0 960 300"
+        width="960"
+        height="300"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        version="1.1"
+      >
+        <g transform="translate(466.3425051210642 147.50157749188912)">
+          <path id="blob1"
+            d="M90.1 -85.2C115.1 -65.1 132.5 -32.5 125.1 -7.4C117.7 17.7 85.4 35.4 60.4 59.2C35.4 83 17.7 113 -0.7 113.7C-19.1 114.4 -38.2 85.9 -58.4 62C-78.5 38.2 -99.8 19.1 -99.5 0.2C-99.3 -18.6 -77.6 -37.2 -57.4 -57.4C-37.2 -77.6 -18.6 -99.3 7 -106.2C32.5 -113.2 65.1 -105.4 90.1 -85.2"
+            fill="#BB004B"
+          ></path>
+        </g>
+        <g transform="translate(492.3129024961676 131.6165200749913)" style="visibility: hidden">
+          <path id="blob2"
+            d="M55.4 -52.5C75.4 -35.4 97.7 -17.7 101.7 4C105.7 25.7 91.4 51.4 71.4 76.4C51.4 101.4 25.7 125.7 -2.7 128.4C-31.1 131.1 -62.2 112.2 -86.7 87.2C-111.2 62.2 -129.1 31.1 -126.8 2.4C-124.4 -26.4 -101.8 -52.8 -77.3 -70C-52.8 -87.1 -26.4 -95.1 -4.4 -90.7C17.7 -86.3 35.4 -69.7 55.4 -52.5"
+            fill="#BB004B"
+          ></path>
+        </g>
+      </svg>
+      <script>
+        const tween = KUTE.fromTo(
+            '#blob1',
+            { path: '#blob1' },
+            { path: '#blob2' },
+            { repeat: 999, duration: 3000, yoyo: true } 
+            
+        )
+        tween.start()
+      </script>
+    </section>
+    <div class="spacer layer2"></div>
+    
+  </body>
+</html>
